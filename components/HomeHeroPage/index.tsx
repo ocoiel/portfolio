@@ -6,7 +6,7 @@ import { useTheme } from 'next-themes';
 export default function HomeHeroSection() {
   const [mounted, isMounted] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
-  console.log(resolvedTheme);
+  // console.log(resolvedTheme);
   return (
     <div className="h-screen w-full relative">
     <div
@@ -15,8 +15,8 @@ export default function HomeHeroSection() {
        {backgroundImage: 'url(./assets/images/hero-section-bg-dark.webp)'} : {backgroundImage: 'url(./assets/images/hero-section-bg-light.webp)'}}
     ></div>
       <canvas className="h-screen w-full absolute" id="liquid-canvas"></canvas>
-      <div className="absolute h-1/4 w-full bg-gradient-to-b from-transparent transition duration-300 to-white translate-y-1 pointer-events-none dark:opacity-50 opacity-100 bottom-0"></div>
-      <div className="absolute h-1/4 w-full bg-gradient-to-b from-transparent transition duration-300 to-bgColor translate-y-1 pointer-events-none opacity-50 dark:opacity-100 bottom-0"></div>
+      {/* <div className="absolute h-1/4 w-full bg-gradient-to-b from-transparent transition duration-300 to-white translate-y-1 pointer-events-none dark:opacity-50 opacity-100 bottom-0"></div> */}
+      {/* <div className="absolute h-1/4 w-full bg-gradient-to-b from-transparent transition duration-300 to-bgColor translate-y-1 pointer-events-none opacity-50 dark:opacity-100 bottom-0"></div> */}
       <div className="absolute w-full h-full pointer-events-none">
         <div className="skew absolute top-0 left-0 bottom-0 right-0 m-auto z-10 h-fit w-fit px-10">
           <div className="md:px-6">

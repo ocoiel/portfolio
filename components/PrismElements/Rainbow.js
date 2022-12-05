@@ -1,3 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable react/no-unknown-property */
+/* eslint-disable react/prop-types */
+/* eslint-disable react/display-name */
 import { forwardRef, useRef } from 'react'
 import { extend, useFrame, useThree } from '@react-three/fiber'
 import { shaderMaterial } from '@react-three/drei'
@@ -29,28 +33,28 @@ const RainbowMaterial = shaderMaterial(
     uniform float emissiveIntensity;
     uniform float time;
     uniform float ratio;
-  
+
     vec2 mp;
     // ratio: 1/3 = neon, 1/4 = refracted, 1/5+ = approximate white
     vec3 physhue2rgb(float hue, float ratio) {
       return smoothstep(vec3(0.0),vec3(1.0), abs(mod(hue + vec3(0.0,1.0,2.0)*ratio,1.0)*2.0-1.0));
     }
-          
-    vec3 iridescence (float angle, float thickness) {      
-      float NxV = cos(angle);     
-      float lum = 0.05064;      
-      float luma = 0.01070;      
-      vec3 tint = vec3(0.49639,0.78252,0.8723);      
-      float interf0 = 2.4;      
-      float phase0 = 1.0 / 2.8;      
-      float interf1 = interf0 * 4.0 / 3.0;      
-      float phase1 = phase0;      
+
+    vec3 iridescence (float angle, float thickness) {
+      float NxV = cos(angle);
+      float lum = 0.05064;
+      float luma = 0.01070;
+      vec3 tint = vec3(0.49639,0.78252,0.8723);
+      float interf0 = 2.4;
+      float phase0 = 1.0 / 2.8;
+      float interf1 = interf0 * 4.0 / 3.0;
+      float phase1 = phase0;
       float f = (1.0 - NxV) * (1.0 - NxV);
       float interf = mix(interf0, interf1, f);
       float phase = mix(phase0, phase1, f);
-      float dp = (NxV - 1.0) * 0.5;            
-      vec3 hue = mix(physhue2rgb(thickness * interf0 + dp, thickness * phase0), physhue2rgb(thickness * interf1 + 0.1 + dp, thickness * phase1), f);      
-      vec3 film = hue * lum + vec3(0.9639,0.78252,0.18723) * luma;      
+      float dp = (NxV - 1.0) * 0.5;
+      vec3 hue = mix(physhue2rgb(thickness * interf0 + dp, thickness * phase0), physhue2rgb(thickness * interf1 + 0.1 + dp, thickness * phase1), f);
+      vec3 film = hue * lum + vec3(0.9639,0.78252,0.18723) * luma;
       return vec3((film * 3.0 + pow(f,12.0))) * tint;
     }
 
@@ -61,14 +65,14 @@ const RainbowMaterial = shaderMaterial(
     vec3 _saturate (vec3 x) {
       return min(vec3(1.,1.,1.), max(vec3(0.,0.,0.),x));
     }
-    
+
     vec3 bump3y(vec3 x, vec3 yoffset) {
       vec3 y = vec3(1.,1.,1.) - x * x;
       y = _saturate(y-yoffset);
       return y;
     }
 
-    vec3 spectral_zucconi6(float w, float t) {    
+    vec3 spectral_zucconi6(float w, float t) {
       float x = _saturate((w - 400.0)/ 300.0);
       const vec3 c1 = vec3(3.54585104, 2.93225262, 2.41593945);
       const vec3 x1 = vec3(0.69549072, 0.49228336, 0.27699880);
@@ -94,7 +98,7 @@ const RainbowMaterial = shaderMaterial(
       float l = 1. - smoothstep(fade, 1., uv.y);
       float area = uv.y < 0. ? 0. : 1.;
       float brightness = smoothstep(0., 0.5, c.x + c.y + c.z);
-      vec3 co = c / iridescence(uv.x * 0.5 * 3.14159, 1.0 - uv.y + time / 10.0) / 20.0;      
+      vec3 co = c / iridescence(uv.x * 0.5 * 3.14159, 1.0 - uv.y + time / 10.0) / 20.0;
       gl_FragColor = vec4(area * co * l * brightness * emissiveIntensity, 1.0);
       if (gl_FragColor.r + gl_FragColor.g + gl_FragColor.b < 0.01) discard;
       #include <encodings_fragment>

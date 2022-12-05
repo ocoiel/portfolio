@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { Dialog } from '@headlessui/react';
 import Image from 'next/image';
@@ -6,7 +6,7 @@ import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
 
-function NavItem({href, text}: any) {
+function NavItem({href, text}: {href: string, text: string}) {
   const router = useRouter();
   const isActive = router.asPath === href;
 
@@ -22,7 +22,7 @@ function NavItem({href, text}: any) {
         <span
           className={`${
             isActive
-              ? 'py-1 border-b-2 border-teal-400 dark:border-teal-500'
+              ? 'py-1 border-b-2 border-teal-400 dark:border-teal-500 dark:text-slate-100'
               : 'capsize'
           }`}
         >
@@ -35,24 +35,24 @@ function NavItem({href, text}: any) {
 
 export function NavMenu({}) {
   const [mounted, setMounted] = useState(false);
-  let [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
 
   // A flag to know when the page has mounted so the theme can be accessed
   useEffect(() => setMounted(true), []);
 
   return (
-    <div className="z-50 sticky backdrop-filter backdrop-blur-lg bg-opacity-30 border-b border-gray-200 text-gray-900 dark:text-gray-100">
-      <nav className="flex items-center justify-between max-w-6xl px-4 py-2 mx-auto sm:px-6 md:space-x-10">
+    <div className="z-50 sticky top-0 backdrop-filter backdrop-blur-lg bg-opacity-30 border-b border-gray-200 text-gray-900 dark:text-gray-100">
+      <nav className="flex sticky items-center justify-between max-w-6xl px-4 py-2 mx-auto sm:px-6 md:space-x-10">
         <div className="flex justify-start lg:w-0 lg:flex-1">
           <span className="sr-only">Profile Picture</span>
           <Image
             alt="Braydon Coyer"
             height={48}
             width={48}
-            src={'https://github.com/ocoiel.png'}
+            src={resolvedTheme === 'dark' ? '/assets/images/logo-white.png' : '/assets/images/logo-black.png'}
             placeholder="blur"
-            blurDataURL={'https://github.com/ocoiel.png'}
+            blurDataURL={'/assets/images/logo-white.png'}
             className="rounded-full"
           />
         </div>
@@ -84,14 +84,113 @@ export function NavMenu({}) {
             </svg>
           </div>
         </div>
-        <nav className="hidden space-x-6 text-lg md:flex">
+        <nav className="hidden sticky space-x-6 text-lg md:flex">
           <NavItem href="/" text="Home" />
           <NavItem href="/about" text="About" />
           <NavItem href="/projects" text="Projects" />
           <NavItem href="/blog" text="Blog" />
         </nav>
         <div className="items-center justify-end hidden md:flex md:flex-1 lg:w-0">
-          <span>en/pt-br</span>
+          <span className="flex px-3">en/pt-br</span>
+          <button
+            aria-label="Toggle Dark Mode"
+            type="button"
+            className="flex items-center justify-center w-12 h-12 bg-gray-200 rounded-full dark:bg-midnight general-ring-state"
+            onClick={() =>
+              setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
+            }
+          >
+            {mounted && (
+              <div>
+                {resolvedTheme === 'dark' ? (
+                  <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24">
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="3.25"
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="1.5"
+                    ></circle>
+                    <path
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="1.5"
+                      d="M12 2.75V4.25"
+                    ></path>
+                    <path
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="1.5"
+                      d="M17.25 6.75L16.0659 7.93416"
+                    ></path>
+                    <path
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="1.5"
+                      d="M21.25 12.0001L19.75 12.0001"
+                    ></path>
+                    <path
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="1.5"
+                      d="M17.25 17.2501L16.0659 16.066"
+                    ></path>
+                    <path
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="1.5"
+                      d="M12 19.75V21.25"
+                    ></path>
+                    <path
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="1.5"
+                      d="M7.9341 16.0659L6.74996 17.25"
+                    ></path>
+                    <path
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="1.5"
+                      d="M4.25 12.0001L2.75 12.0001"
+                    ></path>
+                    <path
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="1.5"
+                      d="M7.93405 7.93423L6.74991 6.75003"
+                    ></path>
+                  </svg>
+                ) : (
+                  <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24">
+                    <path
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="1.5"
+                      d="M18.25 15.7499C17.2352 16.2904 16.23 16.25 15 16.25C10.9959 16.25 7.75 13.0041 7.75 9.00001C7.75 7.77001 7.70951 6.76474 8.25 5.74994C5.96125 6.96891 4.75 9.2259 4.75 12C4.75 16.004 7.99594 19.25 12 19.25C14.7741 19.25 17.031 18.0387 18.25 15.7499Z"
+                    ></path>
+                    <path
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="1.5"
+                      d="M16 4.75C16 6.95914 14.9591 9 12.75 9C14.9591 9 16 11.0409 16 13.25C16 11.0409 17.0409 9 19.25 9C17.0409 9 16 6.95914 16 4.75Z"
+                    ></path>
+                  </svg>
+                )}
+              </div>
+            )}
+          </button>
         </div>
       </nav>
 

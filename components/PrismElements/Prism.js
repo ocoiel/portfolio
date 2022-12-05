@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unknown-property */
+/* eslint-disable react/prop-types */
 import { useLoader } from '@react-three/fiber'
 import { GLTFLoader } from 'three-stdlib'
 
@@ -16,6 +18,3 @@ export function Prism({ onRayOver, onRayOut, onRayMove, ...props }) {
     </group>
   )
 }
-
-
-

@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unknown-property */
+/* eslint-disable react/display-name */
 import * as THREE from 'three'
 import { forwardRef, useRef, useState } from 'react'
 import { useFrame } from '@react-three/fiber'

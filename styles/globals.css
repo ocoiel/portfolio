@@ -23,3 +23,91 @@
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   }
 }
+
+::-webkit-scrollbar {
+	width: 0;
+}
+#scrollPath {
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 10px;
+	height: 100%;
+	background: rgba(255,255,255,0.05);
+  z-index: 4;
+}
+#progressbar {
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 10px;
+
+	background: linear-gradient(to top, #008aff,#00ffe7);
+	animation: animate 5s linear infinite;
+
+  z-index: 4;
+}
+@keyframes animate {
+	0%,100%
+	{
+		filter: hue-rotate(0deg);
+	}
+	50%
+	{
+		filter: hue-rotate(360deg);
+	}
+}
+#progressbar:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(to top, #008aff,#00ffe7);
+	filter: blur(10px);
+}
+#progressbar:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(to top, #008aff,#00ffe7);
+	filter: blur(30px);
+}
+
+/* .scroll-icon {
+  position: absolute;
+  top: 75%;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  height: 4rem;
+  z-index: 10;
+} */
+
+.circle-1, .circle-2 {
+  animation: scroll 2s infinite linear;
+  opacity:0;
+  z-index: 10;
+}
+
+.circle-2{
+  animation-delay: 1s;
+}
+
+@keyframes scroll {
+  0% {
+    cy: 4;
+    opacity: 0;
+  }
+  45%, 55% {
+    opacity: 1;
+    cy: 9;
+  }
+  100% {
+    cy: 14;
+    opacity: 0;
+  }
+}

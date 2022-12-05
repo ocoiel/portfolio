@@ -1,9 +1,11 @@
+/* eslint-disable react/no-unknown-property */
 import * as THREE from 'three'
 import { forwardRef, useImperativeHandle, useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { useTexture } from '@react-three/drei'
 import { Reflect } from './Reflect'
 
+// eslint-disable-next-line react/display-name, react/prop-types
 export const Beam = forwardRef(({ children, position, stride = 4, width = 8, ...props }, fRef) => {
   const streaks = useRef(null)
   const glow = useRef(null)
