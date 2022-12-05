@@ -1,4 +1,4 @@
-import { Head, Html, Main, NextScript } from 'next/document';
+import { Head, Html, Main, NextScript } from "next/document";
 
 export default function Document() {
   return (
@@ -21,10 +21,9 @@ export default function Document() {
           id="fluid-background-js"
           src="/assets/lib/fluid-background.js"
           async
-      ></script>
+        ></script>
 
         {/* <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r79/three.min.js"></script> */}
-
       </Head>
       <body className="prose-headings:font-headings">
         <Main />

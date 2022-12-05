@@ -1,18 +1,17 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import { useEffect } from 'react';
-import HomeHeroSection from '../components/HomeHeroPage';
-import { NavMenu } from '../components/Navbar';
-import { Hero } from '../components/Hero';
+import { useEffect } from "react";
+import HomeHeroSection from "../components/HomeHeroPage";
+import { Hero } from "../components/Hero";
 
 const Home = () => {
   useEffect(() => {
-    window.process = {} as any;
-    const progress = document.getElementById('progressbar');
+    window.process = {} as NodeJS.Process;
+    const progress = document.getElementById("progressbar");
     const totalHeight = document.body.scrollHeight - window.innerHeight;
     window.onscroll = function () {
       const progressHeight = (window.pageYOffset / totalHeight) * 100;
       progress!.style.height = progressHeight + "%";
-	  }
+    };
     console.clear();
     console.log.apply(console, [
       "%c Hi, there 👋! Welcome to my website. %c %c🚀 %c\n",
@@ -35,7 +34,7 @@ const Home = () => {
       <Hero />
       <HomeHeroSection />
     </>
-  )
-}
+  );
+};
 
 export default Home;
