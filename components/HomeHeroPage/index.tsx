@@ -1,10 +1,8 @@
-import { useEffect, useState } from "react";
-
 import { FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
 import { useTheme } from 'next-themes';
 
 export default function HomeHeroSection() {
-  const [mounted, isMounted] = useState(false);
+  // const [mounted, isMounted] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
   // console.log(resolvedTheme);
   return (

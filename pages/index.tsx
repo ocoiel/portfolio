@@ -32,7 +32,6 @@ const Home = () => {
     <>
       <div id="progressbar"></div>
       <div id="scrollpath"></div>
-      <NavMenu />
       <Hero />
       <HomeHeroSection />
     </>
