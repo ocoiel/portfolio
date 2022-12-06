@@ -40,8 +40,10 @@ export function NavMenu({}) {
 
   // A flag to know when the page has mounted so the theme can be accessed
   useEffect(() => {
-    if (typeof window !== "undefined") setMounted(true); // Next check
+    setMounted(true);
   }, []);
+
+  if (!mounted) return null;
 
   return (
     <div className="z-50 sticky top-0 backdrop-filter backdrop-blur-lg bg-opacity-30 border-b border-gray-200 text-gray-900 dark:text-gray-100">

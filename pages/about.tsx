@@ -159,6 +159,69 @@ function About() {
             </div>
           </Container>
         </section>
+        <section className="flex flex-col my-4">
+          <h1 className="headline text-4xl md:text-6xl lg:text-8xl mt-8">
+            Hi, there, I&apos;m Gabriel 🚀
+          </h1>
+          <h2 className="font-bold text-2xl md:text-4xl mt-2">
+            Full-Stack developer from{" "}
+            <span className="font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-600 to-yellow-400">
+              Rio de Janeiro
+            </span>{" "}
+            🇧🇷
+          </h2>
+          <p className="mt-8 text-lg text-justify">
+            As a passionate developer and technology lover, I build websites and
+            web apps to make the internet a better place, but beyond that,{" "}
+            <span className="highlight">I create experiences</span>. I am
+            type-safety worker, an advocate for web performance and
+            accessibility and a evangelist for the{" "}
+            <Link
+              href="https://create.t3.gg/"
+              className="link-about"
+              target="_blank"
+            >
+              T3-Stack.
+            </Link>{" "}
+            You can talk to me about {/* <span className="highlight"> */}
+            <Typed
+              loop
+              typeSpeed={70}
+              backSpeed={20}
+              strings={talkAbout}
+              smartBackspace
+              backDelay={1000}
+              loopCount={0}
+              showCursor
+              cursorChar="|"
+            />
+            {/* </span> */}.
+          </p>
+          <p className="mt-8 text-lg text-justify">
+            I&apos;m 20 years old and I started my journey in this wonderful
+            world, which I&apos;m very proud of, in 2017 in high school at{" "}
+            <Link
+              className="link-about"
+              href="http://cefet-rj.br"
+              target="_blank"
+            >
+              CEFET/RJ
+            </Link>
+            . In the meantime, I studied from Java with springboot, C# with
+            .NET, to Laravel with VueJS 3, until in 2019 I fell in love with the
+            React ecosystem. Since then, I&apos;ve focused my studies on the
+            best code practices, always up to date with market demands,
+            accessibility and, without doubt, UI/UX design. After more than a
+            year reserved for military purposes, I am back with my work
+            activities.
+          </p>
+          <p className="mt-8 text-lg text-justify">
+            When I&apos;m not programming, I like to spend time with my family
+            👑, read good books on Brazilian literature 📚, listen to music from
+            about 50 years ago 🎶 and trying write poetry 📝, in addition to
+            improving my English 🇺🇸.
+          </p>
+        </section>
       </Container>
     </AnimatedPage>
   );

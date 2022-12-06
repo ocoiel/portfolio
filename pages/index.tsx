@@ -14,7 +14,7 @@ const Home = () => {
     };
     console.clear();
     console.log.apply(console, [
-      "%c Hi, there 👋! Welcome to my website. %c %c🚀 %c\n",
+      "%c Hi, there 👋! Welcome to my website. 🚀 \n",
       "color: #000; background: #dddd0d; padding:5px 0;",
     ]);
     console.log.apply(console, [
@@ -29,8 +29,6 @@ const Home = () => {
 
   return (
     <>
-      <div id="progressbar"></div>
-      <div id="scrollpath"></div>
       <Hero />
       <HomeHeroSection />
     </>
