@@ -1,11 +1,14 @@
 import { AnimatedPage } from "../components/AnimatedPage";
+import { Container } from "../components/Container";
 
 function About() {
   return (
     <AnimatedPage>
-      <div className="flex">
-        <h1 className="text-3xl md:text-5xl lg:text-6xl mt-8">Sobre mim</h1>
-      </div>
+      <Container>
+        <section className="flex">
+          <h1 className="text-4xl">Sobre mim...</h1>
+        </section>
+      </Container>
     </AnimatedPage>
   );
 }
