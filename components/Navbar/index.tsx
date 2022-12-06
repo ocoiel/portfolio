@@ -1,12 +1,12 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from "react";
 
-import { Dialog } from '@headlessui/react';
-import Image from 'next/image';
-import NextLink from 'next/link';
-import { useRouter } from 'next/router';
-import { useTheme } from 'next-themes';
+import { Dialog } from "@headlessui/react";
+import Image from "next/image";
+import NextLink from "next/link";
+import { useRouter } from "next/router";
+import { useTheme } from "next-themes";
 
-function NavItem({href, text}: {href: string, text: string}) {
+function NavItem({ href, text }: { href: string; text: string }) {
   const router = useRouter();
   const isActive = router.asPath === href;
 
@@ -15,15 +15,15 @@ function NavItem({href, text}: {href: string, text: string}) {
       <div
         className={`${
           isActive
-            ? 'font-bold text-gray-900 dark:text-gray-200'
-            : 'font-normal text-gray-600 dark:text-gray-400'
+            ? "font-bold text-gray-900 dark:text-gray-200"
+            : "font-normal text-gray-600 dark:text-gray-400"
         } 'hidden md:inline-block p-1 sm:px-6 sm:py-2 rounded-full hover:bg-gray-100 dark:hover:bg-midnight transition-all`}
       >
         <span
           className={`${
             isActive
-              ? 'py-1 border-b-2 border-teal-400 dark:border-teal-500 dark:text-slate-100'
-              : 'capsize'
+              ? "py-1 border-b-2 border-teal-400 dark:border-teal-500 dark:text-slate-100"
+              : "capsize"
           }`}
         >
           {text}
@@ -47,13 +47,18 @@ export function NavMenu({}) {
         <div className="flex justify-start lg:w-0 lg:flex-1">
           <span className="sr-only">Profile Picture</span>
           <Image
-            alt="Braydon Coyer"
+            alt="monogram logo AG"
             height={48}
             width={48}
-            src={resolvedTheme === 'dark' ? '/assets/images/logo-white.png' : '/assets/images/logo-black.png'}
+            src={
+              resolvedTheme === "dark"
+                ? "/assets/images/logo-white.png"
+                : "/assets/images/logo-black.png"
+            }
             placeholder="blur"
-            blurDataURL={'/assets/images/logo-white.png'}
+            blurDataURL={"/assets/images/logo-white.png"}
             className="rounded-full"
+            id="logo-navbar"
           />
         </div>
         <div className="-my-2 -mr-2 md:hidden" onClick={() => setIsOpen(true)}>
@@ -97,12 +102,12 @@ export function NavMenu({}) {
             type="button"
             className="flex items-center justify-center w-12 h-12 bg-gray-200 rounded-full dark:bg-midnight general-ring-state"
             onClick={() =>
-              setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
+              setTheme(resolvedTheme === "dark" ? "light" : "dark")
             }
           >
             {mounted && (
               <div>
-                {resolvedTheme === 'dark' ? (
+                {resolvedTheme === "dark" ? (
                   <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24">
                     <circle
                       cx="12"
@@ -266,13 +271,13 @@ export function NavMenu({}) {
                 type="button"
                 className="flex items-center justify-center w-full py-3 bg-gray-200 rounded-full dark:bg-midnight-hover general-ring-state"
                 onClick={() =>
-                  setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
+                  setTheme(resolvedTheme === "dark" ? "light" : "dark")
                 }
               >
                 {mounted && (
                   <>
                     <div>
-                      {resolvedTheme === 'dark' ? (
+                      {resolvedTheme === "dark" ? (
                         <svg
                           className="w-7 h-7"
                           fill="none"
@@ -367,7 +372,7 @@ export function NavMenu({}) {
                         </svg>
                       )}
                     </div>
-                    {resolvedTheme === 'dark' ? (
+                    {resolvedTheme === "dark" ? (
                       <p className="ml-3 font-semibold">
                         Change to light theme
                       </p>
