@@ -3,26 +3,17 @@ import type { AppProps } from "next/app";
 import { ThemeProvider } from "next-themes";
 import { NavMenu } from "../components/Navbar";
 import { Preloader } from "../components/Preloader";
+import NextNProgress from "nextjs-progressbar";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <ThemeProvider attribute="class">
+        <NextNProgress />
         <NavMenu />
         <Preloader />
         <Component {...pageProps} />
       </ThemeProvider>
-
-      {/* eslint-disable-next-line react/no-unknown-property */}
-      <style jsx global>
-        {`
-          .page-transition-enter-done .page-transition {
-            height: 0%;
-            width: 100%;
-            transition: 500ms;
-          }
-        `}
-      </style>
     </>
   );
 }

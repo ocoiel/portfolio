@@ -1,6 +1,5 @@
 import gsap from "gsap";
 import Image from "next/image";
-// import Image from "next/image";
 import { useEffect } from "react";
 
 const Preloader = () => {
@@ -71,7 +70,15 @@ const Preloader = () => {
         gsap.set(".my-name", {
           css: {
             display: "none",
-            transition: "all 1000ms",
+            opacity: 0,
+            height: 0,
+            // transition: "all 1s",
+          },
+        });
+        gsap.set(".my-logo", {
+          css: {
+            display: "none",
+            // transition: "all 1s",
           },
         });
         gsap.set(".preloader-circle", {
@@ -101,12 +108,14 @@ const Preloader = () => {
           className="my-logo"
           alt="monogram AG logo"
           src="/assets/images/logo-white.png"
+          width={480}
+          height={480}
           blurDataURL="/assets/images/blur-ball-indigo.webp"
-          width={500}
-          height={500}
         />
-        <span className="my-name sm:text-2xl">Gabriel </span>{" "}
-        <span className="text-cyan-400 my-name sm:text-2xl">Albuquerque</span>
+        <span className="my-name text-4xl sm:text-xl">Gabriel </span>{" "}
+        <span className="text-cyan-400 text-4xl my-name sm:text-2xl">
+          Albuquerque
+        </span>
       </div>
       <Image
         alt="blur-ball"
