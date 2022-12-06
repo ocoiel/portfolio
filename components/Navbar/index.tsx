@@ -50,8 +50,8 @@ export function NavMenu({}) {
           <span className="sr-only">Gabriel Albuquerque</span>
           <Image
             alt="monogram logo AG"
-            height={48}
-            width={48}
+            height={50}
+            width={50}
             src={
               resolvedTheme === "dark"
                 ? "/assets/images/logo-white.png"
@@ -59,7 +59,7 @@ export function NavMenu({}) {
             }
             placeholder="blur"
             blurDataURL={"/assets/images/logo-white.png"}
-            className="rounded-full"
+            className="rounded-full z-[80]"
             id="logo-navbar"
           />
         </div>
