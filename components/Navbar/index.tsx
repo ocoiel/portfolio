@@ -22,7 +22,7 @@ function NavItem({ href, text }: { href: string; text: string }) {
         <span
           className={`${
             isActive
-              ? "py-1 border-b-2 border-teal-400 dark:border-teal-500 dark:text-slate-100"
+              ? "py-1 border-b-2 border-[#29d] dark:[#2689c2] dark:text-slate-100"
               : "capsize"
           }`}
         >
@@ -39,13 +39,15 @@ export function NavMenu({}) {
   const { resolvedTheme, setTheme } = useTheme();
 
   // A flag to know when the page has mounted so the theme can be accessed
-  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    if (typeof window !== "undefined") setMounted(true); // Next check
+  }, []);
 
   return (
     <div className="z-50 sticky top-0 backdrop-filter backdrop-blur-lg bg-opacity-30 border-b border-gray-200 text-gray-900 dark:text-gray-100">
       <nav className="flex sticky items-center justify-between max-w-6xl px-4 py-2 mx-auto sm:px-6 md:space-x-10">
         <div className="flex justify-start lg:w-0 lg:flex-1">
-          <span className="sr-only">Profile Picture</span>
+          <span className="sr-only">Gabriel Albuquerque</span>
           <Image
             alt="monogram logo AG"
             height={48}
@@ -231,35 +233,27 @@ export function NavMenu({}) {
             <ul className="space-y-6">
               <li>
                 <NextLink href="/">
-                  <div className="hover:text-teal-400 dark:hover:text-teal-500">
-                    Home
-                  </div>
+                  <div className="border-[#29d] dark:[#2689c2]">Home</div>
                 </NextLink>
               </li>
               <li>
                 <NextLink href="/about">
-                  <div className="hover:text-teal-400 dark:hover:text-teal-500">
-                    About
-                  </div>
+                  <div className="border-[#29d] dark:[#2689c2]">About</div>
                 </NextLink>
               </li>
               <li>
                 <NextLink href="/projects">
-                  <div className="hover:text-teal-400 dark:hover:text-teal-500">
-                    Projects
-                  </div>
+                  <div className="border-[#29d] dark:[#2689c2]">Projects</div>
                 </NextLink>
               </li>
               <li>
                 <NextLink href="/blog">
-                  <div className="hover:text-teal-400 dark:hover:text-teal-500">
-                    Blog
-                  </div>
+                  <div className="border-[#29d] dark:[#2689c2]">Blog</div>
                 </NextLink>
               </li>
               <li>
                 <NextLink href="/community-wall">
-                  <div className="hover:text-teal-400 dark:hover:text-teal-500">
+                  <div className="border-[#29d] dark:[#2689c2]">
                     Community wall
                   </div>
                 </NextLink>

@@ -118,3 +118,13 @@
 .my-logo {
   margin: 0 auto;
 } */
+
+.general-ring-state {
+  @apply transition-all hover:ring ring-midnight dark:ring-gray-100 hover:ring-offset-4 hover:ring-offset-white dark:hover:ring-offset-dark;
+}
+
+@layer components {
+  .headline {
+    @apply font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#57aee0] to-[#154671] dark:from-[#945BF1] dark:via-[#BB48BF] dark:to-[#F67E4D];
+  }
+}

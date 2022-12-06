@@ -1,5 +1,5 @@
 import { FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
-import { useTheme } from 'next-themes';
+import { useTheme } from "next-themes";
 
 export default function HomeHeroSection() {
   // const [mounted, isMounted] = useState(false);
@@ -7,11 +7,20 @@ export default function HomeHeroSection() {
   // console.log(resolvedTheme);
   return (
     <div className="h-screen w-full relative">
-    <div
-      className="h-full w-full absolute bg-center bg-no-repeat bg-cover transition dark:duration-300 dark:opacity-50 opacity-100"
-      style={resolvedTheme === 'dark' ?
-       {backgroundImage: 'url(./assets/images/hero-section-bg-dark.webp)'} : {backgroundImage: 'url(./assets/images/hero-section-bg-light.webp)'}}
-    ></div>
+      <div
+        className="h-full w-full absolute bg-center bg-no-repeat bg-cover transition dark:duration-300 dark:opacity-50 opacity-100"
+        style={
+          resolvedTheme === "dark"
+            ? {
+                backgroundImage:
+                  "url(./assets/images/hero-section-bg-dark.webp)",
+              }
+            : {
+                backgroundImage:
+                  "url(./assets/images/hero-section-bg-light.webp)",
+              }
+        }
+      ></div>
       <canvas className="h-screen w-full absolute" id="liquid-canvas"></canvas>
       {/* <div className="absolute h-1/4 w-full bg-gradient-to-b from-transparent transition duration-300 to-white translate-y-1 pointer-events-none dark:opacity-50 opacity-100 bottom-0"></div> */}
       {/* <div className="absolute h-1/4 w-full bg-gradient-to-b from-transparent transition duration-300 to-bgColor translate-y-1 pointer-events-none opacity-50 dark:opacity-100 bottom-0"></div> */}
