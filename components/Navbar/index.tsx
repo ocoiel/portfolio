@@ -99,7 +99,8 @@ export function NavMenu({}) {
         </nav>
         <div className="items-center justify-end hidden md:flex md:flex-1 lg:w-0">
           <span className="flex px-3">en/pt-br</span>
-          <button
+          {/* Dark-mode bad configuration, all get wrong! */}
+          {/* <button
             aria-label="Toggle Dark Mode"
             type="button"
             className="flex items-center justify-center w-12 h-12 bg-gray-200 rounded-full dark:bg-midnight general-ring-state"
@@ -197,7 +198,7 @@ export function NavMenu({}) {
                 )}
               </div>
             )}
-          </button>
+          </button> */}
         </div>
       </nav>
 

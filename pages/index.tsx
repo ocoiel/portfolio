@@ -5,13 +5,6 @@ import { Hero } from "../components/Hero";
 
 const Home = () => {
   useEffect(() => {
-    window.process = {} as NodeJS.Process;
-    const progress = document.getElementById("progressbar");
-    const totalHeight = document.body.scrollHeight - window.innerHeight;
-    window.onscroll = function () {
-      const progressHeight = (window.pageYOffset / totalHeight) * 100;
-      progress!.style.height = progressHeight + "%";
-    };
     console.clear();
     console.log.apply(console, [
       "%c Hi, there 👋! Welcome to my website. %c %c🚀 %c\n",
@@ -29,8 +22,6 @@ const Home = () => {
 
   return (
     <>
-      <div id="progressbar"></div>
-      <div id="scrollpath"></div>
       <Hero />
       <HomeHeroSection />
     </>

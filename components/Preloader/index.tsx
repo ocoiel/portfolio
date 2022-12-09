@@ -64,7 +64,13 @@ const Preloader = () => {
           background: "transparent",
         }
       );
-      // gsap.to(".preloader", );
+      // setTimeout(() => {
+      //   gsap.to(".my-logo", {
+      //     css: {
+      //       display: "none",
+      //     },
+      //   });
+      // }, 2000);
 
       setTimeout(() => {
         gsap.set(".my-name", {
