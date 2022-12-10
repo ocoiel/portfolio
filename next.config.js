@@ -1,18 +1,18 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
   reactStrictMode: true,
-  assetPrefix: './',
+  assetPrefix: "./",
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'github.com',
+        protocol: "https",
+        hostname: "github.com",
         // port: '',
       },
       {
-        protocol: 'https',
-        hostname: 'uploads.codesandbox.io',
-      }
-    ]
+        protocol: "https",
+        hostname: "uploads.codesandbox.io",
+      },
+    ],
   },
-}
+};
