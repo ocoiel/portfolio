@@ -138,3 +138,7 @@
     @apply cursor-alias border-b-2 border-[#29d] hover:text-[#29d] transition duration-150;
   }
 }
+
+svg {
+  fill: currentColor;
+}

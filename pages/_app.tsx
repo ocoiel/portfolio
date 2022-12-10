@@ -5,14 +5,8 @@ import { NavMenu } from "../components/Navbar";
 import { Preloader } from "../components/Preloader";
 import NextNProgress from "nextjs-progressbar";
 import { useEffect } from "react";
-// import dynamic from "next/dynamic";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  // const DynamicComponentWithNoSSR = dynamic(
-  //   () => import("../components/Navbar") as any,
-  //   { ssr: false }
-  // );
-
   useEffect(() => {
     if (typeof window !== "undefined") {
       if (window.matchMedia("(max-width: 767px)").matches) {
@@ -29,11 +23,15 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      <ThemeProvider attribute="class">
+      <ThemeProvider
+        attribute="class"
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        forcedTheme={Component.theme || null}
+      >
         <NextNProgress />
         <div id="progressbar"></div>
         <div id="scrollpath"></div>
-        {/* <DynamicComponentWithNoSSR /> */}
         <NavMenu />
         <Preloader />
         <Component {...pageProps} />
